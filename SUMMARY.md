@@ -1,8 +1,8 @@
 # Table of contents
 
 * [Liquid Gears Documentation](README.md)
-* [native-apps](native-apps/README.md)
-  * [Liquid Gears Native Apps](native-apps/index.md)
+* [Example page with sub-page](native-apps/README.md)
+  * [Sub-page](native-apps/index.md)
 
 ## Native apps
 
