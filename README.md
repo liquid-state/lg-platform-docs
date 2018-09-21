@@ -1,6 +1,6 @@
-# Liquid Gears Documentation
+# README
 
-This is the technical documentation for the Liquid Gears Platform which enables the creation of communication solutions that include:
+This is the technical documentation for the Liquid Gears Platform which enables the creation of communication solutions which include:
 
 * mobile and web apps
 * content management systems
