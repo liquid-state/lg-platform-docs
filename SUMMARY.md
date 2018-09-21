@@ -1,14 +1,17 @@
 # Table of contents
 
-* [README](README.md)
-* [Liquid Gears Documentation](index.md)
-* [integrated-web-apps](integrated-web-apps.md)
+* [Liquid Gears Documentation](README.md)
 * [native-apps](native-apps/README.md)
   * [Liquid Gears Native Apps](native-apps/index.md)
 
+## Native apps
+
+* [Overview](native-apps-1/overview.md)
+* [Mobile Apps](native-apps-1/mobile-apps.md)
+* [Desktop Web Apps](native-apps-1/desktop-web-apps.md)
+
 ## Integrated Web Apps
 
-* [Liquid Gears Integrated Web Apps \(IWA\)](integrated-web-apps-1/index.md)
-* [Example API](integrated-web-apps-1/example-api.md)
-* [Untitled](integrated-web-apps-1/untitled.md)
+* [Integrated Web Apps overview](integrated-web-apps/index.md)
+* [Core libraries](integrated-web-apps/core-libraries.md)
 

@@ -1,4 +1,4 @@
-# Liquid Gears Integrated Web Apps \(IWA\)
+# Integrated Web Apps overview
 
 Integrated Web Apps are small web applications. They form parts of a [native app](https://github.com/liquid-state/lg-platform-docs/tree/c45aad3ae70a9fe695486f61f5c7aee8f038cd62/native-apps/README.md) built with the Liquid Gears Platform.
 
