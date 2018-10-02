@@ -11,7 +11,13 @@
 
 ## IWA framework
 
-* [Core libraries](iwa-framework/core-libraries.md)
+* [Core libraries](iwa-framework/core-libraries/index.md)
+  * [iwa-core](iwa-framework/core-libraries/iwa-core.md)
+  * [iwa-router](iwa-framework/core-libraries/iwa-router.md)
+  * [iwa-identity](iwa-framework/core-libraries/iwa-identity.md)
+  * [iwa-cognito-identity](iwa-framework/core-libraries/iwa-cognito-identity.md)
+  * [iwa-keyvalue-store](iwa-framework/core-libraries/iwa-identity.md)
+  * [iwa-desktop](iwa-framework/core-libraries/iwa-desktop.md)
 * [React Helpers](iwa-framework/react-helpers.md)
 * [UI Kit](iwa-framework/ui-kit.md)
 * [Generator](iwa-framework/generator.md)
