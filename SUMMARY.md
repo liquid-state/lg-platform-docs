@@ -3,7 +3,7 @@
 * [Liquid Gears Documentation](README.md)
 * [Example page with sub-page](native-apps/README.md)
   * [Sub-page](native-apps/index.md)
-  * [Another-Sub-page](native-apps/another.md)
+  * [Another Sub-page](native-apps/another.md)
 
 ## Core components
 
