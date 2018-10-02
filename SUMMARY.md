@@ -1,18 +1,13 @@
 # Table of contents
 
-* [Liquid Gears Documentation](README.md)
-* [Example page with sub-page](native-apps/README.md)
-  * [Sub-page](native-apps/index.md)
-  * [Another Sub-page](native-apps/another.md)
-
-## Core components
-
-* [Overview](native-apps-1/overview.md)
-* [Mobile Apps](native-apps-1/mobile-apps.md)
-* [Integrated Web Apps \(IWA\)](native-apps-1/index.md)
-* [Desktop Web Apps](native-apps-1/desktop-web-apps.md)
-* [Untitled](native-apps-1/untitled.md)
-* [Admin dashboards](native-apps-1/admin-dashboards.md)
+* [Liquid Gears Platform Documentation](README.md)
+* [Platform components](components/index.md)
+  * [Mobile Apps](components/mobile-apps.md)
+  * [Integrated Web Apps \(IWA\)](components/iwas.md)
+  * [Desktop Web Apps](components/desktop-web-apps.md)
+  * [Ubiquity](components/ubiquity-dashboard.md)
+  * [Carbon Editor](components/carbon-editor.md)
+  * [Admin dashboards](components/admin-dashboards.md)
 
 ## IWA framework
 

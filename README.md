@@ -6,7 +6,9 @@ This is the technical documentation for the Liquid Gears Platform which enables 
 * content management systems
 * backend services
 * administrative and reporting dashboards
-* integration with thoird-party systems
+* integration with third-party systems
+
+The Liquid Gears Platform can be used to produce native apps for iOS, Android and Web Apps for desktop browsers.
 
 For more information, please visit [https://liquid-state.com](https://liquid-state.com) and [https://liquid-gears.com](https://liquid-gears.com)
 
