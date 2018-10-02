@@ -12,4 +12,8 @@
 ## IWA framework
 
 * [Core libraries](iwa-framework/core-libraries.md)
+* [React Helpers](iwa-framework/react-helpers.md)
+* [UI Kit](iwa-framework/ui-kit.md)
+* [Generator](iwa-framework/generator.md)
+* [Blueprints](iwa-framework/blueprints.md)
 
