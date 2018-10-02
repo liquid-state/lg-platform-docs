@@ -22,4 +22,3 @@
 * [UI Kit](iwa-framework/ui-kit.md)
 * [Generator](iwa-framework/generator.md)
 * [Blueprints](iwa-framework/blueprints.md)
-
