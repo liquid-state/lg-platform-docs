@@ -11,7 +11,7 @@
 
 ## IWA framework
 
-* [Core libraries](iwa-framework/core-libraries/index.md)
+* [Core libraries](iwa-framework/core-libraries/libraries.md)
   * [iwa-core](iwa-framework/core-libraries/iwa-core.md)
   * [iwa-router](iwa-framework/core-libraries/iwa-router.md)
   * [iwa-identity](iwa-framework/core-libraries/iwa-identity.md)
