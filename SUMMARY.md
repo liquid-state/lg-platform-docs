@@ -19,6 +19,7 @@
   * [iwa-keyvalue-store](iwa-framework/libraries/iwa-identity-1.md)
   * [iwa-desktop](iwa-framework/libraries/iwa-desktop.md)
 * [React Helpers](iwa-framework/react-helpers.md)
+* [Events](iwa-framework/events/README.md)
 * [UI Kit](iwa-framework/ui-kit.md)
 * [Generator](iwa-framework/generator.md)
 * [Blueprints](iwa-framework/blueprints.md)
