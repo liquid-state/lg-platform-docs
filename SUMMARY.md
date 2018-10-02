@@ -22,3 +22,18 @@
 * [UI Kit](iwa-framework/ui-kit.md)
 * [Generator](iwa-framework/generator.md)
 * [Blueprints](iwa-framework/blueprints.md)
+
+## How-tos
+
+* [Simple App](howtos/simple-app-intro.md)
+  * [Part 1](howtos/simple-app-part-1.md)
+  * [Part 2](howtos/simple-app-part-2.md)
+* [Advanced App](howtos/advanced-app-intro.md)
+  * [Part 1](howtos/advanced-app-part-1.md)
+  * [Part 1](howtos/advanced-app-part-2.md)
+
+## Guides
+
+* [Working with PIP](guides/pip.md)
+* [Localisation](guides/localisation.md)
+* [Testing Mobile Apps](guides/testing-mobile-apps.md)
