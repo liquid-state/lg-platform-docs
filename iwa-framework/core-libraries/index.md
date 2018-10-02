@@ -8,7 +8,7 @@ The following libraries comprise the core of the framework and are used in almos
 
 The following libraries are useful to address partticular needs:
 * [iwa-cognito-identity](./iwa-cognito-identity.md): Support for AWS cognito based identity within IWAs.
-* [iwa-keyvalue-store](./iwa-identity.md): Plugin for identity and credentials management in Liquid State IWAs.
+* [iwa-keyvalue-store](./iwa-keyvalue-store.md): Plugin for identity and credentials management in Liquid State IWAs.
 * [iwa-desktop](./iwa-desktop.md): A set of functions and utilities to make it easy to run IWAs in a desktop environment.
 
 ##  Some example syntax for Gitbook:
