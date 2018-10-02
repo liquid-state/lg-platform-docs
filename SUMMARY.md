@@ -1,19 +1,24 @@
 # Table of contents
 
-* [Liquid Gears Documentation](README.md)
-* [Example page with sub-page](native-apps/README.md)
-  * [Sub-page](native-apps/index.md)
-
-## Core components
-
-* [Overview](native-apps-1/overview.md)
-* [Mobile Apps](native-apps-1/mobile-apps.md)
-* [Integrated Web Apps \(IWA\)](native-apps-1/index.md)
-* [Desktop Web Apps](native-apps-1/desktop-web-apps.md)
-* [Untitled](native-apps-1/untitled.md)
-* [Admin dashboards](native-apps-1/admin-dashboards.md)
+* [Liquid Gears Platform Documentation](README.md)
+* [Platform components](components/index.md)
+  * [Mobile Apps](components/mobile-apps.md)
+  * [Integrated Web Apps \(IWA\)](components/iwas.md)
+  * [Desktop Web Apps](components/desktop-web-apps.md)
+  * [Ubiquity](components/ubiquity-dashboard.md)
+  * [Carbon Editor](components/carbon-editor.md)
+  * [Admin dashboards](components/admin-dashboards.md)
 
 ## IWA framework
 
-* [Core libraries](iwa-framework/core-libraries.md)
-
+* [Core libraries](iwa-framework/core-libraries/index.md)
+  * [iwa-core](iwa-framework/core-libraries/iwa-core.md)
+  * [iwa-router](iwa-framework/core-libraries/iwa-router.md)
+  * [iwa-identity](iwa-framework/core-libraries/iwa-identity.md)
+  * [iwa-cognito-identity](iwa-framework/core-libraries/iwa-cognito-identity.md)
+  * [iwa-keyvalue-store](iwa-framework/core-libraries/iwa-identity.md)
+  * [iwa-desktop](iwa-framework/core-libraries/iwa-desktop.md)
+* [React Helpers](iwa-framework/react-helpers.md)
+* [UI Kit](iwa-framework/ui-kit.md)
+* [Generator](iwa-framework/generator.md)
+* [Blueprints](iwa-framework/blueprints.md)
