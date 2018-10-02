@@ -4,14 +4,16 @@
 * [Example page with sub-page](native-apps/README.md)
   * [Sub-page](native-apps/index.md)
 
-## Native apps
+## Core components
 
 * [Overview](native-apps-1/overview.md)
 * [Mobile Apps](native-apps-1/mobile-apps.md)
+* [Integrated Web Apps \(IWA\)](native-apps-1/index.md)
 * [Desktop Web Apps](native-apps-1/desktop-web-apps.md)
+* [Untitled](native-apps-1/untitled.md)
+* [Admin dashboards](native-apps-1/admin-dashboards.md)
 
-## Integrated Web Apps
+## IWA framework
 
-* [Integrated Web Apps overview](integrated-web-apps/index.md)
-* [Core libraries](integrated-web-apps/core-libraries.md)
+* [Core libraries](iwa-framework/core-libraries.md)
 
