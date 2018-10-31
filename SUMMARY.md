@@ -38,6 +38,7 @@
 
 ## Guides
 
+* [Tabbed Apps](guides/tabbed-apps.md)
 * [Working with PIP](guides/working-with-pip.md)
 * [Localisation](guides/localisation.md)
 * [Testing Mobile Apps](guides/testing-mobile-apps.md)
