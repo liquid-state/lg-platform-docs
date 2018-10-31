@@ -4,7 +4,7 @@ description: >-
   distinct functionality to the app, by way of an Integrated Web App.
 ---
 
-# Tabbed Apps
+# Tabbed Mobile Apps
 
 Each tab displays a preconfigured IWA according to the app's configuration data.
 
