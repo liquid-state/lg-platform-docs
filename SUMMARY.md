@@ -20,6 +20,7 @@
   * [iwa-desktop](iwa-framework/libraries/iwa-desktop.md)
 * [React Helpers](iwa-framework/react-helpers.md)
 * [Events](iwa-framework/events/README.md)
+  * [Events overview](iwa-framework/events/events-overview.md)
   * [app domain](iwa-framework/events/app.md)
   * [iwa domain](iwa-framework/events/iwa.md)
   * [kv domain](iwa-framework/events/kv.md)

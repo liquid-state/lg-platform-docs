@@ -1,4 +1,360 @@
+---
+description: List of event types part of the "app" domain.
+---
+
 # app domain
 
-TODO...
+## online\_status
+
+### Stories addressed
+
+* IWA or other part of the app needs to know if the device/app is currently online or offline
+
+### URL
+
+```text
+liquidstate://app/online_status?request=URLENCODED_REQUEST_OBJECT
+```
+
+### Request data
+
+None
+
+### Response data
+
+| Property name | Type | Required |
+| :--- | :--- | :--- |
+| status | Boolean | Yes |
+
+#### Example response
+
+```javascript
+window.communicate({
+    "purpose": "response",
+    "request_id": "UUID",
+    "event_type": "online_status",
+    "response_data": {
+        "status": true
+    }
+})
+```
+
+## open\_file
+
+### Stories addressed
+
+* IWA or other part of the app needs to open an arbitrary file in the platform-default way.
+
+### Description
+
+On mobile platforms, the file must be at a location accessible to the app.
+
+If the path to the file is a relative one \(starts with “./”\), the native must compute the absolute path according to the following: - if an IWA is sending the event, the absolute path is relative to the entrypoint file of the IWA - if the native document reading view is sesnding the event, the absolute path is relative to the HTML file being read - if another native part of the app is sending the event, the absolute path is relative to the app bundle’s root
+
+On iOS, the native would open the file in the iOS default documetn viewer \(calling NSApplication:openURL\). On Android, the native would trigger an intent and let the OS handle opening the file from that intent.
+
+### URL
+
+```text
+liquidstate://app/open_file?request=URLENCODED_REQUEST_OBJECT
+```
+
+### Request data
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Property name</th>
+      <th style="text-align:left">Type</th>
+      <th style="text-align:left">Required</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">path</td>
+      <td style="text-align:left">String</td>
+      <td style="text-align:left">Yes</td>
+      <td style="text-align:left">
+        <ul>
+          <li>a HTTP URL (path starts with “HTTP://” or “HTTPS://”)</li>
+          <li>a relative location (path starts with “./”)</li>
+          <li>an absolute location (path starts “<a href="file:///">file:///</a>”)</li>
+        </ul>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+  </tbody>
+</table>#### Example request data
+
+```javascript
+{
+    "path": "./files/my_sample_file"
+}
+```
+
+### Response
+
+No response.
+
+## set\_authentication\_status
+
+### Stories addressed
+
+* IWA logged the user in or out and lets the native app know.
+
+### URL
+
+```text
+liquidstate://app/set_authentication_status?request=URLENCODED_REQUEST_OBJECT
+```
+
+### Request data
+
+| Property name | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| is\_authenticated | Boolean | Yes |  |
+
+**Example request data**
+
+```javascript
+{
+    "is_authenticated": true
+}
+```
+
+### Response
+
+No response.
+
+## set\_notification\_presentation\_status
+
+### Stories addressed
+
+* Login IWA needs to let the native app know that a user is ready to have notifications presesented to them.
+
+### Description
+
+The user might not be logged oput and therefore not in a state where they should have notifications,with actions that require being authenticated presented to them.
+
+Similarly, the application logic or UI might be busy and in a state where it isn’t desirable to present the user with notifications.
+
+By default, the native app is in a _not ready_ status and therefore won’t present any notification to the user until this call is made.
+
+### URL
+
+```text
+liquidstate://app/set_notification_presentation_status?request=URLENCODED_REQUEST_OBJECT
+```
+
+### Request data
+
+| Property name | Type | Required |
+| :--- | :--- | :--- |
+| is\_ready | Boolean | Yes |
+
+#### Example request
+
+```javascript
+{
+    "is_ready": true
+}
+```
+
+### Response
+
+No response
+
+## set\_back\_override
+
+### Stories addressed <a id="stories-addressed-3"></a>
+
+* IWA wants to interrupt native back navigation for the current route when the user triggers it.
+
+### URL <a id="url-3"></a>
+
+```text
+liquidstate://app/set_back_override?request=URLENCODED_REQUEST_OBJECT
+```
+
+### Request data <a id="request-data-3"></a>
+
+| Property name | Type | Required |
+| :--- | :--- | :--- |
+| is\_enabled | Boolean | Yes |
+
+#### Example request <a id="example-request"></a>
+
+```javascript
+{
+    "is_enabled": true
+}
+```
+
+### Response <a id="response-2"></a>
+
+No response. When the user triggers native back navigation, the native app will send the following window.communicate event to the IWA:
+
+```javascript
+window.communicate({
+    "purpose": "lifecycle",
+    "id": "back"
+})
+```
+
+## user\_location
+
+### Stories addressed
+
+* IWA needs to know the devices current geographic location
+
+### URL
+
+```text
+liquidstate://app/user_location?request=URLENCODED_REQUEST_OBJECT
+```
+
+### Request data
+
+None
+
+### Response
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Property name</th>
+      <th style="text-align:left">Type</th>
+      <th style="text-align:left">Required</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">type</td>
+      <td style="text-align:left">String</td>
+      <td style="text-align:left">Yes</td>
+      <td style="text-align:left">
+        <p>one of “fine”, “coarse”, “unknown”, “none”</p>
+        <p></p>
+        <p>“fine” and “coarse” match android terminology where:</p>
+        <ul>
+          <li>fine = gps location,</li>
+          <li>coarse = wifi</li>
+        </ul>
+        <p>“unknown” means that there is a location but it is unclear how accurate
+          it is (e.g. the platform may not report the accuracy. An example may be
+          the web client or iOS which does not report how it obtained the location)</p>
+        <p>“none” means no location could be returned .. see “error” for details</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">location</td>
+      <td style="text-align:left">Object</td>
+      <td style="text-align:left">true if “type” is NOT “none”. If “type” IS “none”, this property will
+        notbe present.</td>
+      <td style="text-align:left">
+        <ul>
+          <li>latitude
+            <ul>
+              <li>required : true</li>
+              <li>value : numeric string</li>
+            </ul>
+          </li>
+          <li>longitude
+            <ul>
+              <li>required : true</li>
+              <li>value : numeric string</li>
+            </ul>
+          </li>
+          <li>accuracy
+            <ul>
+              <li>required : false</li>
+              <li>value : numeric string</li>
+              <li>comment : accuracy of the location as a radius, units=metres. Confidence:
+                68% on android, unknown on iOS. Web?</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">error</td>
+      <td style="text-align:left">Boolean</td>
+      <td style="text-align:left">true if “type” is “none” otherwise not present</td>
+      <td style="text-align:left">
+        <ul>
+          <li>reason
+            <ul>
+              <li>required : true</li>
+              <li>value : one of “nopermission”, “disabled”, “nolocation”, “unknown”</li>
+            </ul>
+          </li>
+          <li>comment :
+            <ul>
+              <li>“nopermission” means the user has specifically refused location permission
+                for this app (this has a higher priority than disabled)</li>
+              <li>“disabled” means that location services are turned off on the device</li>
+              <li>“nolocation” means that this device cannot access location information(not
+                expected in practice)</li>
+              <li>“unknown” means the system could not access location information due to
+                a system or app error. More descriptive information should be available
+                in the “message” property.</li>
+            </ul>
+          </li>
+          <li>message
+            <ul>
+              <li>required : true</li>
+              <li>value : string</li>
+              <li>comment : (hopefully) localised message describing the error</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>#### Example response data
+
+```javascript
+window.communicate({
+    "purpose": "response",
+    "request_id": "UUID",
+    "event_type": "user_location",
+    "response_data": {
+        "type": "fine",
+        "location" : {
+            "latitude" : "-27.502520099999998"",
+            "longitude" : "153.0462454",
+            "accuracy" : "7.21"
+        }
+    }
+})
+
+window.communicate({
+    "purpose": "response",
+    "request_id": "UUID",
+    "event_type": "user_location",
+    "response_data": {
+        "type": "unknown",
+        "location" : {
+            "latitude" : "-27.502520099999998"",
+            "longitude" : "153.0462454",
+            "accuracy" : "21.34"
+        }
+    }
+})
+window.communicate({
+    "purpose": "response",
+    "request_id": "UUID",
+    "event_type": "user_location",
+    "response_data": {
+        "type": "none",
+        "error" : {
+            "reason" : "nopermission",
+            "message" :  "You have not granted location permissions for this app. Please goto settings/security and grant location permission for this app"
+        }
+    }
+})
+```
 

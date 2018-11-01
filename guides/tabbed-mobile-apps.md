@@ -46,14 +46,9 @@ The iwa/navigation event will have an optional “target” property added which
 
 The “switchtotab” event includes a mandatory “id” attribute which identifies the target tab.
 
-The “switchtotab” event has the optional attributes : “reset”\(boolean\), and “route”.
+The “switchtotab” event has the following optional attributes :
 
-* If reset is true, the tab will reload ut’s initial state.
-* if “route” is supplied, \(and after reset if requested\) the supplied route will be applied. Note that “route” with “reset” may be difficult to implement and should be left to a later iteration.
-
-### app/clearall event
-
-The “clearall” event causes the entire tab hierarchy to reset and restart \(as though the app was just launched\).
+* reset: if true, the tab will reload its initial state.
 
 ## Showing/hiding tabs
 
