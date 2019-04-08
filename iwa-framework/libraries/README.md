@@ -12,22 +12,3 @@ The following libraries are useful to address partticular needs:
 * [iwa-keyvalue-store](https://github.com/liquid-state/lg-platform-docs/tree/b52bdf46713370f91e897e93abedafa4eea8ff58/iwa-framework/core-libraries/iwa-keyvalue-store.md): Plugin for identity and credentials management in Liquid State IWAs.
 * [iwa-desktop](iwa-desktop.md): A set of functions and utilities to make it easy to run IWAs in a desktop environment.
 
-## Some example syntax for Gitbook:
-
-Becoming a super hero is a fairly straight forward process:
-
-```text
-$ give me super-powers
-```
-
-{% hint style="info" %}
-Super-powers are granted randomly so please submit an issue if you're not happy with yours.
-{% endhint %}
-
-Once you're strong enough, save the world:
-
-```text
-// Ain't no code for that yet, sorry
-echo 'You got to trust me on this, I saved the world'
-```
-
