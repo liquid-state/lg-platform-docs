@@ -78,9 +78,9 @@ liquidstate://app/open_file?request=URLENCODED_REQUEST_OBJECT
       <td style="text-align:left">Yes</td>
       <td style="text-align:left">
         <ul>
-          <li>a HTTP URL (path starts with “HTTP://” or “HTTPS://”)</li>
-          <li>a relative location (path starts with “./”)</li>
-          <li>an absolute location (path starts “<a href="file:///">file:///</a>”)</li>
+          <li>a HTTP URL (path starts with &#x201C;HTTP://&#x201D; or &#x201C;HTTPS://&#x201D;)</li>
+          <li>a relative location (path starts with &#x201C;./&#x201D;)</li>
+          <li>an absolute location (path starts &#x201C;<a href="file:///">file:///</a>&#x201D;)</li>
         </ul>
       </td>
       <td style="text-align:left"></td>
@@ -236,24 +236,28 @@ None
       <td style="text-align:left">String</td>
       <td style="text-align:left">Yes</td>
       <td style="text-align:left">
-        <p>one of “fine”, “coarse”, “unknown”, “none”</p>
+        <p>one of &#x201C;fine&#x201D;, &#x201C;coarse&#x201D;, &#x201C;unknown&#x201D;,
+          &#x201C;none&#x201D;</p>
         <p></p>
-        <p>“fine” and “coarse” match android terminology where:</p>
+        <p>&#x201C;fine&#x201D; and &#x201C;coarse&#x201D; match android terminology
+          where:</p>
         <ul>
           <li>fine = gps location,</li>
           <li>coarse = wifi</li>
         </ul>
-        <p>“unknown” means that there is a location but it is unclear how accurate
-          it is (e.g. the platform may not report the accuracy. An example may be
-          the web client or iOS which does not report how it obtained the location)</p>
-        <p>“none” means no location could be returned .. see “error” for details</p>
+        <p>&#x201C;unknown&#x201D; means that there is a location but it is unclear
+          how accurate it is (e.g. the platform may not report the accuracy. An example
+          may be the web client or iOS which does not report how it obtained the
+          location)</p>
+        <p>&#x201C;none&#x201D; means no location could be returned .. see &#x201C;error&#x201D;
+          for details</p>
       </td>
     </tr>
     <tr>
       <td style="text-align:left">location</td>
       <td style="text-align:left">Object</td>
-      <td style="text-align:left">true if “type” is NOT “none”. If “type” IS “none”, this property will
-        notbe present.</td>
+      <td style="text-align:left">true if &#x201C;type&#x201D; is NOT &#x201C;none&#x201D;. If &#x201C;type&#x201D;
+        IS &#x201C;none&#x201D;, this property will notbe present.</td>
       <td style="text-align:left">
         <ul>
           <li>latitude
@@ -282,25 +286,28 @@ None
     <tr>
       <td style="text-align:left">error</td>
       <td style="text-align:left">Boolean</td>
-      <td style="text-align:left">true if “type” is “none” otherwise not present</td>
-      <td style="text-align:left">
+      <td style="text-align:left">true if &#x201C;type&#x201D; is &#x201C;none&#x201D; otherwise not present</td>
+      <td
+      style="text-align:left">
         <ul>
           <li>reason
             <ul>
               <li>required : true</li>
-              <li>value : one of “nopermission”, “disabled”, “nolocation”, “unknown”</li>
+              <li>value : one of &#x201C;nopermission&#x201D;, &#x201C;disabled&#x201D;,
+                &#x201C;nolocation&#x201D;, &#x201C;unknown&#x201D;</li>
             </ul>
           </li>
           <li>comment :
             <ul>
-              <li>“nopermission” means the user has specifically refused location permission
-                for this app (this has a higher priority than disabled)</li>
-              <li>“disabled” means that location services are turned off on the device</li>
-              <li>“nolocation” means that this device cannot access location information(not
-                expected in practice)</li>
-              <li>“unknown” means the system could not access location information due to
-                a system or app error. More descriptive information should be available
-                in the “message” property.</li>
+              <li>&#x201C;nopermission&#x201D; means the user has specifically refused location
+                permission for this app (this has a higher priority than disabled)</li>
+              <li>&#x201C;disabled&#x201D; means that location services are turned off on
+                the device</li>
+              <li>&#x201C;nolocation&#x201D; means that this device cannot access location
+                information(not expected in practice)</li>
+              <li>&#x201C;unknown&#x201D; means the system could not access location information
+                due to a system or app error. More descriptive information should be available
+                in the &#x201C;message&#x201D; property.</li>
             </ul>
           </li>
           <li>message
@@ -311,7 +318,7 @@ None
             </ul>
           </li>
         </ul>
-      </td>
+        </td>
     </tr>
   </tbody>
 </table>#### Example response data

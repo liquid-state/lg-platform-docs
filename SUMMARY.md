@@ -43,5 +43,6 @@
 * [Tabbed Mobile Apps](guides/tabbed-mobile-apps.md)
 * [Working with PIP](guides/working-with-pip.md)
 * [Localisation](guides/localisation.md)
+* [Analytics](guides/analytics.md)
 * [Testing Mobile Apps](guides/testing-mobile-apps.md)
 
