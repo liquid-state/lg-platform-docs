@@ -1,6 +1,199 @@
 # iwa domain
 
-## trigger\_action
+## set\_ready
+
+### Stories addressed <a id="stories-addressed-1"></a>
+
+* The IWA has finished loading its core code and is declaring to the native app that it is ready to handle window.communicate events.
+
+### URL <a id="url-1"></a>
+
+```text
+liquidstate://iwa/set_ready?request=URLENCODED_REQUEST_OBJECT
+```
+
+### Request data <a id="request-data-1"></a>
+
+None
+
+### Response <a id="response-data-1"></a>
+
+No response
+
+## navigate <a id="handle_share"></a>
+
+### Stories addressed <a id="stories-addressed-1"></a>
+
+* Navigate from an IWA to another IWA, with a route specified
+* Navigate to a different route in the same IWA
+* Navigate from a native view to an IWA
+* Optionally: change tab before navigation \(ignored for linear apps\)
+
+### URL <a id="url-1"></a>
+
+```text
+liquidstate://iwa/navigate?request=URLENCODED_REQUEST_OBJECT
+```
+
+### Request data <a id="request-data-1"></a>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Property name</th>
+      <th style="text-align:left">Type</th>
+      <th style="text-align:left">Required</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">webapp_id</td>
+      <td style="text-align:left">String</td>
+      <td style="text-align:left">No</td>
+      <td style="text-align:left">Default value: current IWA&apos;s webapp_id</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">entrypoint</td>
+      <td style="text-align:left">String</td>
+      <td style="text-align:left">No</td>
+      <td style="text-align:left">Default value: &quot;default&quot;</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">route</td>
+      <td style="text-align:left">String</td>
+      <td style="text-align:left">No</td>
+      <td style="text-align:left">Default value: &quot;/&quot;</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">transition</td>
+      <td style="text-align:left">String</td>
+      <td style="text-align:left">No</td>
+      <td style="text-align:left">
+        <p>Possible values:</p>
+        <ul>
+          <li>push</li>
+          <li>replace</li>
+          <li>modal</li>
+        </ul>
+        <p>Default value: &quot;push&quot;</p>
+        <p>Specifies how the next view or activity should be presented. The default
+          is &#x201C;push&#x201D;, which is equivalent to the platform&#x2019;s default
+          (e.g. &#x201C;slide from the right hand side on iOS&#x201D;).</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">latest</td>
+      <td style="text-align:left">Boolean</td>
+      <td style="text-align:left">No</td>
+      <td style="text-align:left">
+        <p>Default value:</p>
+        <ul>
+          <li>true if navigate to other webapp id or no local copy of the webapp</li>
+          <li>false if navigating to the same webapp id</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">tab_id</td>
+      <td style="text-align:left">String</td>
+      <td style="text-align:left">No</td>
+      <td style="text-align:left">
+        <p>Indicates that the equivalent of a switch_tab event should be executed
+          prior to this navigate event.</p>
+        <p>Not applicable to linear apps.</p>
+        <p>The value must be a tab defined in the app config at launch.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>#### Example request data <a id="example-request-data"></a>
+
+```javascript
+{
+    "webapp_id": "login",
+    "entrypoint": "default",
+    "route": "/",
+    "replace": true,
+    "latest": true,
+}
+```
+
+### Response <a id="response-data-1"></a>
+
+No response. Second web app will get window.communicate call with purpose = navigate.
+
+## navigate\_back <a id="handle_share"></a>
+
+### Stories addressed
+
+* Navigate from a route back to another route on the navigation stack, with a route id specified
+* Navigate from a route back to the previous route
+
+### URL <a id="url-1"></a>
+
+```text
+liquidstate://iwa/navigate_back?request=URLENCODED_REQUEST_OBJECT
+```
+
+### Request data <a id="request-data-1"></a>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Property name</th>
+      <th style="text-align:left">Type</th>
+      <th style="text-align:left">Required</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">webapp_id</td>
+      <td style="text-align:left">String</td>
+      <td style="text-align:left">No</td>
+      <td style="text-align:left">Default value: null (equivalent to &quot;routes belonging to any IWA&quot;)</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">route_id</td>
+      <td style="text-align:left">String</td>
+      <td style="text-align:left">No</td>
+      <td style="text-align:left">
+        <p>Default value: null</p>
+        <p>skip all other routes until a route with a matching id is found. The default
+          is null, meaning any route id&quot;.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>A route must match both webapp\_id and route\_id to be navigated to.
+
+#### Example request data <a id="example-request-data"></a>
+
+```javascript
+{
+    "webapp_id": "myapp",
+    "route_id": "home"
+}
+```
+
+### Response <a id="response-data-1"></a>
+
+No response. When displaying the mathcing route again, the native app will send the original navigate event to the IWA, with all its data, for example:
+
+```javascript
+window.communicate({
+    "purpose": "navigate",
+    "route": "/",
+    "params": {
+        "querystringparam1": "value"
+    },
+    "context": {
+        "product_id": "com.example.app123.doc1",
+        "page_slug": "page-1"
+    }
+})
+```
+
+## trigger\_action <a id="handle_share"></a>
 
 ### Stories addressed <a id="stories-addressed-1"></a>
 
