@@ -365,3 +365,321 @@ window.communicate({
 })
 ```
 
+## feature\_status
+
+### Stories addressed <a id="stories-addressed-3"></a>
+
+* IWA needs to know whether a device feature is available and any qualifying details that may be relevant
+
+### URL <a id="url-3"></a>
+
+```text
+liquidstate://app/feature_status?request=URLENCODED_REQUEST_OBJECT
+```
+
+### Request data <a id="request-data-3"></a>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Property name</th>
+      <th style="text-align:left">Type</th>
+      <th style="text-align:left">Required</th>
+      <th style="text-align:left">Possible values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">feature</td>
+      <td style="text-align:left">String</td>
+      <td style="text-align:left">Yes</td>
+      <td style="text-align:left">
+        <ul>
+          <li>biometrics</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>#### Example request <a id="example-request"></a>
+
+```javascript
+{
+    "feature": "biometrics"
+}
+```
+
+### Response
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Property name</th>
+      <th style="text-align:left">Type</th>
+      <th style="text-align:left">Required</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">status</td>
+      <td style="text-align:left">Boolean</td>
+      <td style="text-align:left">Yes</td>
+      <td style="text-align:left">
+        <p>Possible values:</p>
+        <ul>
+          <li>&quot;unknown&quot; means the requested feature is name not handled by
+            this event</li>
+          <li>&quot;not_present&quot; means the current device cannot provide this feature
+            (ever)</li>
+          <li>&quot;disabled&quot; means the feature is present on the device but the
+            user has either disabled it e.g. biometrics are never available if a passcode
+            has not been set</li>
+          <li>&quot;not_configured&quot; means the feature is present and is not disabled,
+            but the user must take some steps to make it usable</li>
+          <li>&quot;available&quot; means the feature is present and configured and
+            may be used</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">details</td>
+      <td style="text-align:left">Object</td>
+      <td style="text-align:left">Yes is status is not &quot;unknown&quot;</td>
+      <td style="text-align:left">This object will contain feature specific details &#x2013; See &quot;Feature
+        Details&quot; below</td>
+    </tr>
+  </tbody>
+</table>#### Feature details for biometrics
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Property name</th>
+      <th style="text-align:left">Type</th>
+      <th style="text-align:left">Required</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">feature</td>
+      <td style="text-align:left">String</td>
+      <td style="text-align:left">Yes</td>
+      <td style="text-align:left">The name of the feature that was requested.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">status</td>
+      <td style="text-align:left">String</td>
+      <td style="text-align:left">Yes</td>
+      <td style="text-align:left">
+        <p>Possible values:</p>
+        <ul>
+          <li>&quot;not_present&quot; means the current device does not have fingerprint
+            or face-id authentication capability</li>
+          <li>&quot;disabled&quot; means that there is no passcode registered for the
+            device or that biometrics have been explicitly disabled by the user</li>
+          <li>&quot;not_enrolled&quot; means biometrics are not disabled and a passcode
+            has been set but that no fingerprints or face-id have been enrolled</li>
+          <li>&quot;available&quot; at least one type of biometric authentication is
+            available and fully configured</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">type</td>
+      <td style="text-align:left">Array of String</td>
+      <td style="text-align:left">Yes if status is &quot;available&quot;</td>
+      <td style="text-align:left">
+        <p>This lists the available biometric authentication methods. At the time
+          of writing iOS devices will return a single item list containing either
+          &quot;face&quot; or &quot;touch&quot;.</p>
+        <p>Possible values:</p>
+        <ul>
+          <li>&quot;touch&quot;</li>
+          <li>&quot;face&quot;</li>
+          <li>&quot;iris&quot;</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">
+        <ul>
+          <li></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>#### Example response
+
+```javascript
+// device does not have biometrics capability
+window.communicate({
+    "purpose": "response",
+    "request_id": "UUID",
+    "event_type": "feature_status",
+    "response_data": {
+        "status": "not_present",
+        "detail": {
+            feature: "biometrics",
+            status: "not_present"
+        }
+    }
+})
+
+// biometrics disabled or passcode/pin not set
+window.communicate({
+    "purpose": "response",
+    "request_id": "UUID",
+    "event_type": "feature_status",
+    "response_data": {
+        "status": "disabled",
+        "detail": {
+            feature: "biometrics",
+            status: "disabled"
+        }
+    }
+})
+
+// biometrics enabled but no fingerprints/face-id enrolled
+window.communicate({
+    "purpose": "response",
+    "request_id": "UUID",
+    "event_type": "feature_status",
+    "response_data": {
+        "status": "not_configured",
+        "detail": {
+            feature: "biometrics",
+            status: "not_enrolled"
+        }
+    }
+})
+
+// biometrics available on iPhone X
+window.communicate({
+    "purpose": "response",
+    "request_id": "UUID",
+    "event_type": "feature_status",
+    "response_data": {
+        "status": "available",
+        "detail": {
+            feature: "biometrics",
+            status: "available"
+            type: ["face"]
+        }
+    }
+})
+
+// biometrics available on iPhone 6s
+window.communicate({
+    "purpose": "response",
+    "request_id": "UUID",
+    "event_type": "feature_status",
+    "response_data": {
+        "status": "available",
+        "detail": {
+            feature: "biometrics",
+            status: "available"
+            type: ["touch"]
+        }
+    }
+})
+
+
+// biometrics available on Samsung S8 (with nothing disabled or un-configured)
+window.communicate({
+    "purpose": "response",
+    "request_id": "UUID",
+    "event_type": "feature_status",
+    "response_data": {
+        "status": "available",
+        "detail": {
+            feature: "biometrics",
+            status: "available"
+            type: ["touch","face","iris"]
+        }
+    }
+})
+```
+
+## clearall
+
+### Stories addressed
+
+* IWA or other part of the app wants to reset the app to its initial launch condition \(but not clearing authentication state\).
+
+### URL
+
+```text
+liquidstate://app/clearall?request=URLENCODED_REQUEST_OBJECT
+```
+
+### Request data
+
+None
+
+### Response
+
+No response
+
+## switch\_tab
+
+### Stories addressed
+
+* IWA or other part of the app wants to change the current displayed tab \(only actioned in a tabbed app\)
+
+### Request data <a id="request-data-3"></a>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Property name</th>
+      <th style="text-align:left">Type</th>
+      <th style="text-align:left">Required</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">id</td>
+      <td style="text-align:left">String</td>
+      <td style="text-align:left">Yes</td>
+      <td style="text-align:left">A tab id declared in the app configuration.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">reset</td>
+      <td style="text-align:left">Boolean</td>
+      <td style="text-align:left">False</td>
+      <td style="text-align:left">
+        <p>If true, the tab should be reset to it&#x2019;s initial launch state before
+          any route is applied.</p>
+        <p>Default value: true</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">route</td>
+      <td style="text-align:left">String</td>
+      <td style="text-align:left">Yes</td>
+      <td style="text-align:left">
+        <p>The name of a route to navigate to in the destination tab. If not present,
+          no extra route navigation will be performed.</p>
+        <p>Default value: null</p>
+      </td>
+    </tr>
+  </tbody>
+</table>#### Example request <a id="example-request"></a>
+
+```javascript
+{
+    "id": "t1",
+    "reset": true,
+    "route": "/page1"
+}
+```
+
+### Response <a id="response-2"></a>
+
+No response
+
