@@ -20,7 +20,7 @@ None
 
 No response
 
-## navigate <a id="handle_share"></a>
+## navigate <a id="navigate"></a>
 
 ### Stories addressed <a id="stories-addressed-1"></a>
 
@@ -122,7 +122,7 @@ liquidstate://iwa/navigate?request=URLENCODED_REQUEST_OBJECT
 
 No response. Second web app will get window.communicate call with purpose = navigate.
 
-## navigate\_back <a id="handle_share"></a>
+## navigate\_back <a id="navigate_back"></a>
 
 ### Stories addressed
 
@@ -193,7 +193,7 @@ window.communicate({
 })
 ```
 
-## trigger\_action <a id="handle_share"></a>
+## trigger\_action <a id="trigger_action"></a>
 
 ### Stories addressed <a id="stories-addressed-1"></a>
 
@@ -269,7 +269,11 @@ window.communicate({
 })
 ```
 
-## handle\_share <a id="handle_share"></a>
+## handle\_share \(deprecated\) <a id="handle_share"></a>
+
+### Note
+
+handle\_share events are deprecated in favour of the upcoming Service IWA feature
 
 ### Stories addressed <a id="stories-addressed-2"></a>
 
