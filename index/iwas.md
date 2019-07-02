@@ -41,7 +41,7 @@ Generator are templates for [Yeoman](http://yeoman.io) which can be used to set 
 ## Blueprints
 
 Blueprints are pre-made IWAs. They can be used as-is or as a starting point to kickstart the creation of an IWA focusing on a particular problematic. Available blueprints are:
- * Login
- * Registration
 
+* Login
+* Registration
 

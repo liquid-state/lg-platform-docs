@@ -1,4 +1,4 @@
-# Liquid Gears Documentation
+# Liquid Gears Platform Documentation
 
 This is the technical documentation for the Liquid Gears Platform which enables the creation of communication solutions that include:
 
