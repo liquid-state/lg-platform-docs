@@ -10,6 +10,14 @@ Each tab displays a preconfigured IWA according to the app's configuration data.
 
 ## A few facts about tabs in Mobile Apps
 
+### Tabs are fixed for an entire app
+
+The definition of tabs for an app is loaded when the app starts and cannot be dynamically modified.
+
+This means it is impossible to, for example, change which tabs are displayed after a user has logged in.
+
+It is however possible to show and hide tabs \(e.g. to show them to users only after they have logged in\) by using the "show\_tabs" configuration parameter in app data and webapp.json files.
+
 ### Tabs are silos
 
 Tab IWAs will not be able to inter-communicate between tabs, other than via events through the native app container such as:
