@@ -696,7 +696,7 @@ Not all tabs have to be specified in this event and it is possible to update the
 
 The request data is an object which has as properties the "id" of the tabs to modify, as configured in the app data.
 
-The value for each of these tab ids is an object with the following proprties:
+The value for each of these tab ids is an object with the following properties:
 
 | Property name | Type | Required | Description |
 | :--- | :--- | :--- | :--- |
