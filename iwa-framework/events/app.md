@@ -683,3 +683,51 @@ No response
 
 No response
 
+## set\_tab\_appearance
+
+### Stories addressed
+
+* IWA or other part of the app wants to modifiy the appearance \(icon and/or text\) of a tab.
+* Although the configuration of the list of tabs and the IWAs loaded in them never changes, this can be used by IWAs to simulate the display of different tabs to different users.
+
+### Request data <a id="request-data-3"></a>
+
+Not all tabs have to be specified in this event and it is possible to update the appearance of one or more tabs at a time.
+
+The request data is an object which has as properties the "id" of the tabs to modify, as configured in the app data.
+
+The value for each of these tab ids is an object with the following proprties:
+
+| Property name | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| title | String or Object | Yes | The text to be displayed on the tab. This can be a simple string, or an object to support  translations \(please refer to the app data configuration documentation\). |
+| icon\_name | String | Yes if "icon\_font\_name" and "icon\_code\_point" are not specified | The name of the icon to be used from the default set of app icons. |
+| icon\_font\_name | String | Yes if "icon\_name" is not specified | The name of the font in the custom fonts configuration. |
+| icon\_code\_point | String | Yes if "icon\_name" is not specified | The code point of the glyph in the custom font file. |
+
+#### Example request <a id="example-request"></a>
+
+```javascript
+{
+    "tab1": {
+        "title": "Favourites",
+        "icon_name": "star"
+    },
+    "tab3": {
+        "title": {
+            "key": "favourites.tab-title",
+            "translations": {
+                "en": "Favourite",
+                "fr": "Favoris"
+            }
+        },
+        "icon_font_name": "custom",
+        "icon_code_point": "\U234"
+    }
+}
+```
+
+### Response <a id="response-2"></a>
+
+No response
+
