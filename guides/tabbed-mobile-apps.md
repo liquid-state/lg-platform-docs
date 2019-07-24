@@ -110,6 +110,8 @@ Typical use-cases for hiding individual tabs are:
 
 You can display/hide individual tabs at any time by using the [app/set\_tab\_appearance event](../iwa-framework/events/app.md#set_tab_appearance).
 
+Note: when tabs are hidden, they are destroyed from the app's UI hierarchy and removed from memory. As a tab provides a navigational context for one or more IWAs, the associated IWAs are also destroyed and removed from memory. If a tab has been re-displayed after being hidden, the tab's lifecycle is recreated: the default IWA for this tab as per the app's configuration will be loaded upon the tab being selected.
+
 ## Example configurations
 
 ### App Data configuration
