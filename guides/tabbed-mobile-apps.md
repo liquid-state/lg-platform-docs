@@ -16,7 +16,9 @@ The definition of tabs for an app is loaded when the app starts and cannot be dy
 
 This means it is impossible to, for example, change which tabs are displayed after a user has logged in.
 
-It is however possible to show and hide tabs \(e.g. to show them to users only after they have logged in\) by using the "show\_tabs" configuration parameter in app data and webapp.json files.
+It is however possible to show and hide tabs \(e.g. to show them to users only after they have logged in\) by using the "show\_tabs" configuration parameter in app data and webapp.json files. See "The tab bar can be hidden".
+
+It is also possible to display/hide individual tabs. See "Invididuals tabs can be hidden" below.
 
 ### Tabs are silos
 
@@ -44,6 +46,24 @@ Tabbed apps display a tab bar and do not currently have support for displaying a
 
 Primary actions are supported the same way as for Linear apps.
 
+### The tab bar can be hidden
+
+The entire tab bar can be hidden using the "show\_tabs" property in both the app-level App Data and the IWA-level webapp.json file, in which case individual routes can decide to show/hide the entire tab bar. See examples below.
+
+### Individual tabs can be hidden
+
+It is possible to configure tabs which are:
+
+* not displayed by default
+* can be displayed/hidden at any time
+
+Typical use-cases for hiding individual tabs are:
+
+* a top-level area of an app which should not be available to users until they perform a particular action
+* configuring many tabs for all types of users and displaying select subsets of the tabs based on the type of user once they are identified \(e.g. after logging in\).
+
+You can display/hide individual tabs at any time by using the [app/set\_tab\_appearance event](../iwa-framework/events/app.md#set_tab_appearance).
+
 ## Tab-related events
 
 ### iwa/navigation event
@@ -60,15 +80,39 @@ The “switchtotab” event has the following optional attributes :
 
 ## Showing/hiding tabs
 
-It is possible to hide/show the tab bar based on the configuration of the currently displayed IWA.
+### The tab bar can be hidden
 
-The IWA configuration data can indicate whether an IWA will hide/show the tabbar by default.
+#### By default, in App Data configuration
 
-Individual IWA route definitions may also override the hide/show state of the tabbar. A practical example of this may be for authentication purposes. The first tab \(we’ll call it "Home"\) may launch as a login screen and then transition to the main app \("Main"\) screen once authentication has occurred. The Login IWA that is first launched may indicate that the tab bar should be hidden. The "Main" IWA may indicate that it should be shown. Once authentication is completed, the tab bar with all associated tabs will appear as the tab transitions to display the Main IWA. Going "back" to the Login IWA will cause the tabbar to be hidden again.
+The entire tab bar can be hidden using the "show\_tabs" property in the app-level App Data.
+
+#### For any route, in IWA configuration
+
+It is also possible to hide/show the tab bar based on the configuration of the currently displayed IWA.
+
+The IWA configuration data can indicate whether an IWA will hide/show the tab bar by default.
+
+Individual IWA route definitions may also override the hide/show state of the entire tab bar.
+
+A practical example of this may be for authentication purposes. The first tab \(we’ll call it "Home"\) may launch as a login screen and then transition to the main app \("Main"\) screen once authentication has occurred. The Login IWA that is first launched may indicate that the tab bar should be hidden. The "Main" IWA may indicate that it should be shown. Once authentication is completed, the tab bar with all associated tabs will appear as the tab transitions to display the Main IWA. Going "back" to the Login IWA will cause the tabbar to be hidden again.
+
+### Individual tabs can be hidden
+
+It is possible to configure individual tabs which are:
+
+* not displayed by default
+* can be displayed/hidden at any time
+
+Typical use-cases for hiding individual tabs are:
+
+* a top-level area of an app which should not be available to users until they perform a particular action
+* configuring many tabs for all types of users and displaying select subsets of the tabs based on the type of user once they are identified \(e.g. after logging in\).
+
+You can display/hide individual tabs at any time by using the [app/set\_tab\_appearance event](../iwa-framework/events/app.md#set_tab_appearance).
 
 ## Example configurations
 
-### App configuration
+### App Data configuration
 
 ```javascript
 {
@@ -77,6 +121,7 @@ Individual IWA route definitions may also override the hide/show state of the ta
         "type" : "tabbed",
         "navigation_options" : {
             "tabbed" : {
+                "show_tabs": false,
                 "launch_tab_id" : "t1",
                 "tabs" : {
                     "t1" : {
@@ -101,6 +146,7 @@ Individual IWA route definitions may also override the hide/show state of the ta
                                 }
                             }
                         },
+                        "hidden": true,
                         "launch_data" : { "webapp_id" : "2nd_webapp" }
                     }
                 },
@@ -111,7 +157,7 @@ Individual IWA route definitions may also override the hide/show state of the ta
 }
 ```
 
-### IWA configuration
+### IWA configuration \(webapp.json file\)
 
 ```javascript
 {

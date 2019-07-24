@@ -704,6 +704,7 @@ The value for each of these tab ids is an object with the following properties:
 | icon\_name | String | Yes if "icon\_font\_name" and "icon\_code\_point" are not specified | The name of the icon to be used from the default set of app icons. |
 | icon\_font\_name | String | Yes if "icon\_name" is not specified | The name of the font in the custom fonts configuration. |
 | icon\_code\_point | String | Yes if "icon\_name" is not specified | The code point of the glyph in the custom font file. |
+| hidden | Boolean | No | Specify whether this particular tab should be displayed or ommitted from the tab bar. |
 
 #### Example request <a id="example-request"></a>
 
