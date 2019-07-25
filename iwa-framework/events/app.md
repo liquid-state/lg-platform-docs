@@ -698,15 +698,59 @@ The request data is an object which has as properties the "id" of the tabs to mo
 
 The value for each of these tab ids is an object with the following properties:
 
-| Property name | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| title | String or Object | Yes | The text to be displayed on the tab. This can be a simple string, or an object to support  translations \(please refer to the app data configuration documentation\). |
-| icon\_name | String | Yes if "icon\_font\_name" and "icon\_code\_point" are not specified | The name of the icon to be used from the default set of app icons. |
-| icon\_font\_name | String | Yes if "icon\_name" is not specified | The name of the font in the custom fonts configuration. |
-| icon\_code\_point | String | Yes if "icon\_name" is not specified | The code point of the glyph in the custom font file. |
-| hidden | Boolean | No | Specify whether this particular tab should be displayed or ommitted from the tab bar. |
-
-#### Example request <a id="example-request"></a>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Property name</th>
+      <th style="text-align:left">Type</th>
+      <th style="text-align:left">Required</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">title</td>
+      <td style="text-align:left">String or Object</td>
+      <td style="text-align:left">No</td>
+      <td style="text-align:left">The text to be displayed on the tab. This can be a simple string, or an
+        object to support translations (please refer to the app data configuration
+        documentation).</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">icon_name</td>
+      <td style="text-align:left">String</td>
+      <td style="text-align:left">Yes if you want to change the icon and &quot;icon_font_name&quot; and
+        &quot;icon_code_point&quot; are not specified.
+        <br />No otherwise.</td>
+      <td style="text-align:left">The name of the icon to be used from the default set of app icons.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">icon_font_name</td>
+      <td style="text-align:left">String</td>
+      <td style="text-align:left">
+        <p>Yes if you want to change the icon and &quot;icon_name&quot; is not specified.</p>
+        <p>No otherwise.</p>
+      </td>
+      <td style="text-align:left">The name of the font in the custom fonts configuration.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">icon_code_point</td>
+      <td style="text-align:left">String</td>
+      <td style="text-align:left">
+        <p>Yes if you want to change the icon and &quot;icon_name&quot; is not specified.</p>
+        <p>No otherwise.</p>
+      </td>
+      <td style="text-align:left">The code point of the glyph in the custom font file.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">hidden</td>
+      <td style="text-align:left">Boolean</td>
+      <td style="text-align:left">No</td>
+      <td style="text-align:left">Specify whether this particular tab should be displayed or ommitted from
+        the tab bar.</td>
+    </tr>
+  </tbody>
+</table>#### Example request <a id="example-request"></a>
 
 ```javascript
 {
