@@ -4,6 +4,26 @@ description: List of event types part of the "app" domain.
 
 # app domain
 
+## reset
+
+### Stories addressed
+
+* IWA decides that the entire app should be reload, including all its configuration and navigation contexts.
+
+### URL
+
+```text
+liquidstate://app/reset?request=URLENCODED_REQUEST_OBJECT
+```
+
+### Request data
+
+None
+
+### Response data
+
+No response.
+
 ## online\_status
 
 ### Stories addressed
