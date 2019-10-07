@@ -688,6 +688,13 @@ No response
         <p>Default value: null</p>
       </td>
     </tr>
+    <tr>
+      <td style="text-align:left">params</td>
+      <td style="text-align:left">String</td>
+      <td style="text-align:left">Yes</td>
+      <td style="text-align:left">A JSON object of arbitrary parameters to be passed onto the tab that is
+        switched to.</td>
+    </tr>
   </tbody>
 </table>#### Example request <a id="example-request"></a>
 
@@ -701,7 +708,21 @@ No response
 
 ### Response <a id="response-2"></a>
 
-No response
+No response, but...
+
+#### Message for tab being switched to
+
+The native app will issue a window.communicate call to the tab being switched to, optionally including the "params" property specified in the original event.
+
+```javascript
+window.communicate({
+    "purpose": "switch_tab",
+    "params": {
+        "foo1": "bar1",
+        "foo2": "bar2"
+    }
+})
+```
 
 ## set\_tab\_appearance
 
