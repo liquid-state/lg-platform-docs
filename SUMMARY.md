@@ -24,7 +24,7 @@
   - [app domain](iwa-framework/events/app.md)
   - [iwa domain](iwa-framework/events/iwa.md)
   - [kv domain](iwa-framework/events/kv.md)
-  - [documents domain](iwa-framework/events/documents.md)
+  - [launch domain](iwa-framework/events/launch.md)
 - [UI Kit](iwa-framework/ui-kit.md)
 - [Generator](iwa-framework/generator.md)
 - [Blueprints](iwa-framework/blueprints.md)
