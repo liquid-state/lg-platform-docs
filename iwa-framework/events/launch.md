@@ -1,6 +1,6 @@
-# documents domain
+# launch domain
 
-## open
+## document
 
 ### Stories addressed <a id="stories-addressed-1"></a>
 
@@ -11,7 +11,7 @@ Note: currently, native apps will first check whether a document is locally pres
 ### URL <a id="url-1"></a>
 
 ```text
-liquidstate://documents/open?request=URLENCODED_REQUEST_OBJECT
+liquidstate://launch/document?request=URLENCODED_REQUEST_OBJECT
 ```
 
 ### Request data <a id="request-data-1"></a>
