@@ -2,13 +2,13 @@
 
 * [Liquid Gears Platform Documentation](README.md)
 * [Platform components](index/README.md)
-  * [API documentation](index/api-documentation.md)
   * [Mobile Apps](index/mobile-apps.md)
   * [Integrated Web Apps \(IWA\)](index/iwas.md)
   * [Desktop Web Apps](index/desktop-web-apps.md)
   * [Ubiquity](index/ubiquity-dashboard.md)
   * [Carbon Editor](index/carbon-editor.md)
   * [Admin dashboards](index/admin-dashboards.md)
+* [API documentation](api-documentation.md)
 
 ## IWA framework
 
