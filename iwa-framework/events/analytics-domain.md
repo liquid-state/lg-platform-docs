@@ -14,7 +14,7 @@
 ### URL <a id="url-1"></a>
 
 ```text
-liquidstate://analytics/disabled?request=URLENCODED_REQUEST_OBJECT
+liquidstate://analytics/set_analytics_enabled?request=URLENCODED_REQUEST_OBJECT
 ```
 
 ### Request data <a id="request-data-1"></a>
