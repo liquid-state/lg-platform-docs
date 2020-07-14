@@ -70,7 +70,9 @@ liquidstate://launch/iwa?request=URLENCODED_REQUEST_OBJECT
       </td>
     </tr>
   </tbody>
-</table>### Response <a id="response-data-1"></a>
+</table>
+
+### Response <a id="response-data-1"></a>
 
 No response, the native app will simply launch the IWA with the specified transition.
 

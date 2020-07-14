@@ -106,7 +106,9 @@ liquidstate://iwa/navigate?request=URLENCODED_REQUEST_OBJECT
       </td>
     </tr>
   </tbody>
-</table>#### Example request data <a id="example-request-data"></a>
+</table>
+
+#### Example request data <a id="example-request-data"></a>
 
 ```javascript
 {
@@ -164,7 +166,9 @@ liquidstate://iwa/navigate_back?request=URLENCODED_REQUEST_OBJECT
       </td>
     </tr>
   </tbody>
-</table>A route must match both webapp\_id and route\_id to be navigated to.
+</table>
+
+A route must match both webapp\_id and route\_id to be navigated to.
 
 #### Example request data <a id="example-request-data"></a>
 

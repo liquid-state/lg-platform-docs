@@ -32,12 +32,12 @@
 
 ## How-tos
 
-* [Simple App](how-tos/simple-app/README.md)
-  * [Part 1](how-tos/simple-app/part-1.md)
-  * [Part 2](how-tos/simple-app/part-2.md)
-* [Advanced App](how-tos/advanced-app/README.md)
-  * [Part 1](how-tos/advanced-app/part-1.md)
-  * [Part 1](how-tos/advanced-app/part-1-1.md)
+* [Simple Mobile App](how-tos/simple-mobile-app/README.md)
+  * [Part 1](how-tos/simple-mobile-app/part-1.md)
+  * [Part 2](how-tos/simple-mobile-app/part-2.md)
+* [Advanced Mobile App](how-tos/advanced-mobile-app/README.md)
+  * [Part 1](how-tos/advanced-mobile-app/part-1.md)
+  * [Part 1](how-tos/advanced-mobile-app/part-1-1.md)
 
 ## Guides
 

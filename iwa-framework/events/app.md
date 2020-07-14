@@ -106,7 +106,9 @@ liquidstate://app/open_file?request=URLENCODED_REQUEST_OBJECT
       <td style="text-align:left"></td>
     </tr>
   </tbody>
-</table>#### Example request data
+</table>
+
+#### Example request data
 
 ```javascript
 {
@@ -341,7 +343,9 @@ None
         </td>
     </tr>
   </tbody>
-</table>#### Example response data
+</table>
+
+#### Example response data
 
 ```javascript
 window.communicate({
@@ -420,7 +424,9 @@ liquidstate://app/feature_status?request=URLENCODED_REQUEST_OBJECT
       </td>
     </tr>
   </tbody>
-</table>#### Example request <a id="example-request"></a>
+</table>
+
+#### Example request <a id="example-request"></a>
 
 ```javascript
 {
@@ -469,7 +475,9 @@ liquidstate://app/feature_status?request=URLENCODED_REQUEST_OBJECT
         Details&quot; below</td>
     </tr>
   </tbody>
-</table>#### Feature details for biometrics
+</table>
+
+#### Feature details for biometrics
 
 <table>
   <thead>
@@ -532,7 +540,9 @@ liquidstate://app/feature_status?request=URLENCODED_REQUEST_OBJECT
       </td>
     </tr>
   </tbody>
-</table>#### Example response
+</table>
+
+#### Example response
 
 ```javascript
 // device does not have biometrics capability
@@ -696,7 +706,9 @@ No response
         switched to.</td>
     </tr>
   </tbody>
-</table>#### Example request <a id="example-request"></a>
+</table>
+
+#### Example request <a id="example-request"></a>
 
 ```javascript
 {
@@ -791,7 +803,9 @@ The value for each of these tab ids is an object with the following properties:
         the tab bar.</td>
     </tr>
   </tbody>
-</table>#### Example request <a id="example-request"></a>
+</table>
+
+#### Example request <a id="example-request"></a>
 
 ```javascript
 {
