@@ -26,6 +26,7 @@
   * [iwa domain](iwa-framework/events/iwa.md)
   * [kv domain](iwa-framework/events/kv.md)
   * [launch domain](iwa-framework/events/launch.md)
+  * [analytics domain](iwa-framework/events/analytics-domain.md)
 * [UI Kit](iwa-framework/ui-kit.md)
 * [Generator](iwa-framework/generator.md)
 * [Blueprints](iwa-framework/blueprints.md)
