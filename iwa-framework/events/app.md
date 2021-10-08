@@ -689,16 +689,6 @@ No response
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">route</td>
-      <td style="text-align:left">String</td>
-      <td style="text-align:left">Yes</td>
-      <td style="text-align:left">
-        <p>The name of a route to navigate to in the destination tab. If not present,
-          no extra route navigation will be performed.</p>
-        <p>Default value: null</p>
-      </td>
-    </tr>
-    <tr>
       <td style="text-align:left">params</td>
       <td style="text-align:left">String</td>
       <td style="text-align:left">Yes</td>
